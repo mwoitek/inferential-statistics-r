@@ -1,0 +1,227 @@
+% Created 2024-06-29 Sat 20:03
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+\usepackage[american, english]{babel}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}
+\renewcommand{\labelitemi}{$\rhd$}
+\setlength\parindent{0pt}
+\setlist[itemize]{leftmargin=*}
+\setlist{nosep}
+\date{}
+\title{Week 3 Quiz}
+\hypersetup{
+ pdfauthor={Marcio Woitek},
+ pdftitle={Week 3 Quiz},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.4 (Org mode 9.8)}, 
+ pdflang={English}}
+\begin{document}
+
+\thispagestyle{empty}
+\pagestyle{empty}
+\section*{Problem 1}
+\label{sec:orgf6b633d}
+
+\textbf{Answer:} A bootstrap confidence interval constructed based on a biased sample
+will still yield an unbiased estimate for the population parameter of interest.
+\section*{Problem 2}
+\label{sec:org8bb9b52}
+
+\textbf{Answer:}
+\begin{itemize}
+\item Version 1: Each observation in one data set is subtracted from the average of
+the other data set's observations.
+\item Version 2: The data can't be considered paired data because the days for which
+we have Intel data may be different from the days for which we have Southwest
+Airlines data.
+\end{itemize}
+\section*{Problem 3}
+\label{sec:org18358c3}
+
+\textbf{Answer:} Sampling distribution
+\section*{Problem 4}
+\label{sec:org34a0409}
+
+\textbf{Answer:}
+\begin{itemize}
+\item Version 1: The study's authors are 95\% confident that babies born to
+non-smoking mothers are on average 0.2 to 0.9 pounds heavier than babies born
+to smoking mothers.
+\item Version 2: Since 0 is apparently an unusual value for the statistic, then at
+the 5\% significance level we would fail to reject a null hypothesis that
+claims that the fathers' and mothers' average IQs are equal.
+\end{itemize}
+\section*{Problem 5}
+\label{sec:orgb5af664}
+
+\textbf{Answer:}
+\begin{itemize}
+\item Version 1: Because the standard error estimate may not be accurate.
+\item Version 2: A confidence interval based on this sample is not accurate since
+the sample size is small.
+\end{itemize}
+\section*{Problem 6}
+\label{sec:orgc89b210}
+
+\textbf{Answer:} It becomes more normal looking.
+\section*{Problem 7}
+\label{sec:orgaca94c1}
+
+\textbf{Answer:} Tom has a one-sided alternative hypothesis and should do a paired
+t-test.
+\section*{Problem 8}
+\label{sec:org60e9587}
+
+\textbf{Answer:}
+\begin{itemize}
+\item Version 1: Between 0.02 and 0.05.
+\item Version 2: \(T < -1.71\)
+\end{itemize}
+
+\begin{verbatim}
+# Version 1
+n <- 26
+t <- 2.485
+p_value <- 2 * pt(t, n - 1, lower.tail = F)
+print(p_value)
+\end{verbatim}
+
+\phantomsection
+\label{}
+\begin{verbatim}
+0.0200048010978179
+\end{verbatim}
+
+
+\begin{verbatim}
+# Version 2
+print_p_value <- function(t, n) {
+  p_value <- pt(t, n - 1)
+  cat("T =", t, "--- p-value =", p_value, "\n")
+}
+
+n <- 25
+ts <- c(-1.71, -1.32, 1.32, 1.71, 1.96)
+for (t in ts) {
+  print_p_value(t, n)
+}
+\end{verbatim}
+
+\phantomsection
+\label{}
+\begin{verbatim}
+T = -1.71 --- p-value = 0.05008269 
+T = -1.32 --- p-value = 0.09964372 
+T = 1.32 --- p-value = 0.9003563 
+T = 1.71 --- p-value = 0.9499173 
+T = 1.96 --- p-value = 0.969147 
+\end{verbatim}
+\section*{Problem 9}
+\label{sec:org0811dfa}
+
+\textbf{Answer:} F-test (ANOVA)
+\section*{Problem 10}
+\label{sec:org7fa9f83}
+
+\textbf{Answer:}
+\begin{itemize}
+\item Version 1: There should be at least 10 successes and 10 failures.
+\item Version 2: Side-by-side box plots showing roughly equally sized boxes for each
+group.
+\end{itemize}
+\section*{Problem 11}
+\label{sec:org51b070f}
+
+\textbf{Answer:} 1.87
+
+\begin{verbatim}
+p <- 1 - 0.0767
+df1 <- 7
+df2 <- 189
+f_stat <- round(qf(p, df1, df2), digits = 2)
+print(f_stat)
+\end{verbatim}
+
+\phantomsection
+\label{}
+\begin{verbatim}
+1.87
+\end{verbatim}
+\section*{Problem 12}
+\label{sec:org592940f}
+
+\textbf{Answer:}
+\begin{itemize}
+\item Version 1: At least two group means are significantly different from each
+other.
+\item Version 2:
+\begin{align*}
+  H_0&:\mu_1=\mu_2=\mu_3=\mu_4=\mu_5\\
+  H_A&:\text{at least one }\mu_i\text{ is different}
+\end{align*}
+\end{itemize}
+\section*{Problem 13}
+\label{sec:orgf2db6fb}
+
+\textbf{Answer:}
+\begin{itemize}
+\item Version 1: Decrease
+\item Version 2: 1.023
+\end{itemize}
+
+\begin{verbatim}
+# Version 2
+n1 <- 18
+s1 <- 3.4
+
+n2 <- 18
+s2 <- 2.7
+
+sp <- sqrt(((n1 - 1) * s1^2 + (n2 - 1) * s2^2) / (n1 + n2 - 2))
+std_err <- sp * sqrt(1 / n1 + 1 / n2)
+signif(std_err, digits = 4)
+\end{verbatim}
+
+\phantomsection
+\label{}
+\begin{verbatim}
+[1] 1.023
+\end{verbatim}
+\section*{Problem 14}
+\label{sec:org9e09806}
+
+\textbf{Answer:}
+\begin{itemize}
+\item Version 1: \(\alpha^{\prime}=0.005\)
+\item Version 2: \(K=10\)\\
+\end{itemize}
+
+The adjusted significance level is given by
+\begin{equation}
+\alpha^{\prime}=\frac{\alpha}{K},
+\end{equation}
+where \(K\) can be obtained from the number of groups \(k=5\) as follows:
+\begin{equation}
+K=\frac{k(k-1)}{2}=\frac{5(5-1)}{2}=10.
+\end{equation}
+Using this result and \(\alpha=0.05\), we get
+\begin{equation}
+\alpha^{\prime}=\frac{0.05}{10}=0.005.
+\end{equation}
+\end{document}
