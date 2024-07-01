@@ -1,0 +1,129 @@
+:PROPERTIES:
+:UNNUMBERED: notoc
+:END:
+
+#+AUTHOR: Marcio Woitek
+#+TITLE: Week 4 Quiz
+#+LATEX_HEADER: \usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+#+LATEX_HEADER: \usepackage[american]{babel}
+#+LATEX_HEADER: \usepackage{enumitem}
+#+LATEX_HEADER: \usepackage{float}
+#+LATEX_HEADER: \usepackage[sc]{mathpazo}
+#+LATEX_HEADER: \linespread{1.05}
+#+LATEX_HEADER: \renewcommand{\labelitemi}{$\rhd$}
+#+LATEX_HEADER: \setlength\parindent{0pt}
+#+LATEX_HEADER: \setlist[itemize]{leftmargin=*}
+#+LATEX_HEADER: \setlist{nosep}
+#+OPTIONS: ':t
+#+OPTIONS: author:nil
+#+OPTIONS: date:nil
+#+OPTIONS: title:nil
+#+OPTIONS: toc:nil
+#+STARTUP: hideblocks
+
+#+BEGIN_SRC latex
+\thispagestyle{empty}
+\pagestyle{empty}
+#+END_SRC
+
+* Problem 1
+
+*Answer:* Sample size should be at least 30 and the population distribution
+should not be extremely skewed.
+
+* Problem 2
+
+*Answer:* False
+
+* Problem 3
+
+*Answer:* \( H_0:p=0.5 \); \( H_A:p>0.5 \)
+
+* Problem 4
+
+*Answer:*
+- Version 1: If in fact 10% of the birds in the aviary are cardinals, the
+  probability of obtaining a random sample of 250 birds where exactly 14% are
+  cardinals is 0.0175.
+- Version 2: If in fact 50% of likely voters support this candidate, the
+  probability of obtaining a random sample of 500 likely voters where 52% or
+  more support the candidate is 0.19.
+
+* Problem 5
+
+*Answer:* 0.022
+
+#+BEGIN_SRC R :results output :exports both
+y1 <- 493
+n1 <- 1037
+
+y2 <- 596
+n2 <- 1028
+
+p_hat <- (y1 + y2) / (n1 + n2)
+std_err <- sqrt(p_hat * (1 - p_hat) * (1 / n1 + 1 / n2))
+signif(std_err, digits = 3)
+#+END_SRC
+
+#+RESULTS:
+: [1] 0.022
+
+* Problem 6
+
+*Answer:* Because in hypothesis testing, we assume the null hypothesis is true,
+hence we calculate SE using the null value of the parameter. In confidence
+intervals, there is no null value, hence we use the sample proportion(s).
+
+* Problem 7
+
+*Answer:*
+- Version 1: \( \chi^2 \) test of goodness of fit
+- Version 2: Chi-square test of independence [This version has a table.]
+
+* Problem 8
+
+*Answer:*
+- Version 1: Roll a 10-sided die 100 times and record the proportion of times
+  you get a 6 or lower. Repeat this many times, and calculate the number of
+  simulations where the sample proportion is 56% or less.
+- Version 2: Roll a 10-sided die 40 times and record the proportion of times you
+  get a 1. Repeat this many times, and calculate the proportion of simulations
+  where the sample proportion is 15% or more.
+
+* Problem 9
+
+*Answer:* True
+
+* Problem 10
+
+*Answer:*
+- Version 1: False
+- Version 2: Right-skewed
+
+* Problem 11
+
+*Answer:* 3.36
+
+#+BEGIN_SRC R :results output :exports both
+col1 <- c(6, 16, 4)
+col2 <- c(6, 15, 3)
+tbl <- array(c(col1, col2), dim = c(3, 2))
+
+table_total <- sum(tbl)
+row_total <- apply(tbl, c(1), sum)[3]
+column_total <- apply(tbl, c(2), sum)[2]
+
+exp_male <- row_total * column_total / table_total
+signif(exp_male, digits = 3)
+#+END_SRC
+
+#+RESULTS:
+: [1] 3.36
+
+* Problem 12
+
+*Answer:* True
+
+# Local Variables:
+# ispell-alternate-dictionary: "american"
+# End:
